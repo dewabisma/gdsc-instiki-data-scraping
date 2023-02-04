@@ -1,7 +1,18 @@
+import paths from "./config/filePaths.js";
 import sites from "./config/sites.js";
-import { fetchSiteHTML } from "./scripts/directUrlAccess.js";
+import {
+  extractAllEventsData,
+  fetchSiteHTML,
+  getEventContainerEl,
+  getEventEls,
+  saveEventsDataToJsonFile,
+} from "./scripts/directUrlAccess.js";
 
-// Main Playground
+// Main Playground Instiki
 const tes = await fetchSiteHTML(sites.instiki);
+const eventContainerEL = getEventContainerEl(tes);
+const eventEls = getEventEls(eventContainerEL);
+const eventsData = extractAllEventsData(eventEls);
+await saveEventsDataToJsonFile(eventsData, paths.instiki);
 
-console.log(tes);
+// Main Playground Shopee
