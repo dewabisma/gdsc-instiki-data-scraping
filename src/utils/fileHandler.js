@@ -6,8 +6,16 @@ const writeJsonDataToJsonFile = async (
     path: "",
   }
 ) => {
-  if (Object.keys(data).length === 0) return "Please provide json data";
-  if (!config.path) return "Please provide a path";
+  if (Object.keys(data).length === 0) {
+    console.log("Please provide json data");
+
+    return;
+  }
+  if (!config.path) {
+    console.log("Please provide a path");
+
+    return;
+  }
 
   try {
     const stringifiedData = JSON.stringify(data);

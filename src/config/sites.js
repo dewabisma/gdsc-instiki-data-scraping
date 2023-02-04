@@ -1,6 +1,6 @@
 const sites = {
   shopee: "https://shopee.co.id/",
-  opeansea: "https://opensea.io/",
+  opensea: "https://opensea.io/",
   instiki: "https://instiki.ac.id/events/",
 };
 

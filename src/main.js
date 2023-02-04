@@ -1,4 +1,3 @@
-import paths from "./config/filePaths.js";
 import sites from "./config/sites.js";
 import {
   extractAllEventsData,
@@ -7,12 +6,26 @@ import {
   getEventEls,
   saveEventsDataToJsonFile,
 } from "./scripts/directUrlAccess.js";
+import {
+  crawlAndFetchSiteHTML,
+  extractAllPopularProductsData,
+  getPopularProductEls,
+  savePopularProductDataToJsonFile,
+} from "./scripts/usingPuppeteer.js";
 
-// Main Playground Instiki
-const tes = await fetchSiteHTML(sites.instiki);
-const eventContainerEL = getEventContainerEl(tes);
-const eventEls = getEventEls(eventContainerEL);
-const eventsData = extractAllEventsData(eventEls);
-await saveEventsDataToJsonFile(eventsData, paths.instiki);
+/* Main Playground Direct Access Method */
+// const stikiHtml = await fetchSiteHTML(sites.instiki);
+// const eventContainerEL = getEventContainerEl(stikiHtml);
+// const eventEls = getEventEls(eventContainerEL);
+// const eventsData = extractAllEventsData(eventEls);
+// await saveEventsDataToJsonFile(eventsData);
 
-// Main Playground Shopee
+/* SPA limitation */
+// const shopeeHtml = await fetchSiteHTML(sites.shopee);
+// console.log(shopeeHtml);
+
+/* Main Playground Shopee */
+// const shopeeHtml = await crawlAndFetchSiteHTML(sites.shopee);
+// const popularProductEls = getPopularProductEls(shopeeHtml);
+// const popularProductsData = extractAllPopularProductsData(popularProductEls);
+// await savePopularProductDataToJsonFile(popularProductsData);

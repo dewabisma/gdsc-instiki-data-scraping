@@ -1,6 +1,8 @@
 import * as cheerio from "cheerio";
+
 import createStikiEvent from "../models/eventSchema.js";
 import writeJsonDataToJsonFile from "../utils/fileHandler.js";
+import paths from "../config/filePaths.js";
 
 const fetchSiteHTML = async (url = "") => {
   if (!url) return null;
@@ -63,9 +65,9 @@ const extractAllEventsData = (eventEls) => {
   return eventsData;
 };
 
-const saveEventsDataToJsonFile = async (data, path) => {
+const saveEventsDataToJsonFile = async (data) => {
   try {
-    await writeJsonDataToJsonFile(data, { path });
+    await writeJsonDataToJsonFile(data, { path: paths.instiki });
 
     console.log("Success saving events data");
   } catch (error) {
