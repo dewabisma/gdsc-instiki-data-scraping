@@ -1,0 +1,17 @@
+{
+  "name": "gdsc_instiki_data_scraping",
+  "version": "1.0.0",
+  "description": "module belajar data scraping",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start":"node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@dwbisma",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^19.6.3"
+  }
+}
