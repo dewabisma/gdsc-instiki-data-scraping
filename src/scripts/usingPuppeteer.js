@@ -7,10 +7,11 @@ import writeJsonDataToJsonFile from "../utils/fileHandler.js";
 
 /**
  * When loading shopee website, the popular product will not be rendered until
- * the browser scrolls down to view that section
+ * the browser scrolls down to view that section, also need to do delay because waiting for
+ * network requests to get data for rendering elements
  *
- * @param {} url
- * @returns string
+ * @param {} url - site that will be crawled
+ * @returns html body of the page
  */
 const crawlAndFetchSiteHTML = async (url = "") => {
   if (!url) {
